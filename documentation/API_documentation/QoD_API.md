@@ -53,7 +53,7 @@ In this method the API invoker client is registered as a confidential client wit
 
 ### 4.1 API Version
 
-0.8.0
+0.9.0
 
 ### 4.2 Details
 
@@ -109,7 +109,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
             <td colspan=2>No path parameters are defined</td>
         </tr>
         <tr>
-            <td rowspan=8><b>Request Body Parameters</b></td>
+            <td rowspan=9><b>Request Body Parameters</b></td>
             <td><b>duration (optional)</b></td>
             <td>Session duration in seconds. Maximal value of 24 hours is used if not set. e.g. 86400</td>
         </tr>
@@ -146,7 +146,11 @@ Following table defines API endpoints of exposed REST based for QoD management o
         </tr>
         <tr>
             <td><b>qosProfile</b></td>
-            <td>Qualifier for the requested latency/throughput profile, e.g. QOS_E</td>
+            <td>Qualifier for the requested latency/throughput profile, e.g. QOS_E.  Either qosProfileId or qosProfile will be included, but not both.</td>
+        </tr>
+        <tr>
+            <td><b>qosProfileId</b></td>
+            <td>The ID string for the EnhancedQoS profile.  Either qosProfileId or qosProfile will be included, but not both.</td>
         </tr>
         <tr>
             <td><b>notificationUrl (optional)</b></td>
@@ -322,7 +326,28 @@ Following table defines API endpoints of exposed REST based for QoD management o
         </tr>
         <tr>
             <td><b>Query Parameters</b></td>
-            <td colspan=2>No query parameters are defined</td>
+            <td colspan=2>
+                <b>id</b>: The identifier of the QoS Profile<br>
+                <b>name</b>: The name of the QoS Profile<br>
+                <b>status</b>: The status of the QoS Profile<br>
+                <b>targetMinimumUpstreamRate</b>: This is the targeted minimum upstream rate for this profile.<br>
+                <b>maxUpstreamRate</b>: This is the maximum sustained upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxUpstreamBurstRate</b>: This is the maximum burst upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
+                <b>targetMinimumDownstreamRate</b>: This is the targeted minimum Downstream rate for this profile.<br>
+                <b>maxDownstreamRate</b>: This is the maximum sustained Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxDownstreamBurstRate</b>: This is the maximum burst Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
+                <b>minDuration (optional)</b>: Minimum duration for a session with this QoS Profile<br>
+                <b>maxDuration (optional)</b>: Maximum duration for a session with this QoS Profile<br>
+                <b>priority (optional)</b>: The priority of this QoS Profile<br>
+                <b>packetDelayBudget (optional)</b>: Maximum latency<br>
+                <b>Jitter (optional)</b>: Jitter refers to the variation in the time it takes for none queue building packets to travel across a network measured in milliseconds (ms). In terms of maximum deviation for round trip latency on a network, jitter can be defined as the difference between the highest and lowest latency values experienced by the 99th percentile of traffic.
+                To be more specific, if we consider the round trip latency values of the 99th percentile of traffic, jitter is the measure of how much these values deviate from the average round trip latency for this percentile. A low jitter value indicates that the latency values are relatively consistent, whereas a high jitter value implies that there is a significant variation in latency times, which can negatively impact the performance of real-time applications such as VoIP, video conferencing, and online gaming.
+                <br>
+                <b>packetErrorLossRate (optional)</b>: The magnitude of the error loss rate<br></td>
         </tr>
         <tr>
             <td><b>Path Parameters</b></td>
@@ -340,12 +365,23 @@ Following table defines API endpoints of exposed REST based for QoD management o
                 <b>id</b>: The identifier of the QoS Profile<br>
                 <b>name</b>: The name of the QoS Profile<br>
                 <b>status</b>: The status of the QoS Profile<br>
-                <b>minBandwidth</b>: Minimum / guaranteed Bandwidth<br>
-                <b>maxBandwidth</b>: Maximum / best effort Bandwidth<br>
+                <b>targetMinimumUpstreamRate</b>: This is the targeted minimum upstream rate for this profile.<br>
+                <b>maxUpstreamRate</b>: This is the maximum sustained upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxUpstreamBurstRate</b>: This is the maximum burst upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
+                <b>targetMinimumDownstreamRate</b>: This is the targeted minimum Downstream rate for this profile.<br>
+                <b>maxDownstreamRate</b>: This is the maximum sustained Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxDownstreamBurstRate</b>: This is the maximum burst Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
                 <b>minDuration (optional)</b>: Minimum duration for a session with this QoS Profile<br>
                 <b>maxDuration (optional)</b>: Maximum duration for a session with this QoS Profile<br>
                 <b>priority (optional)</b>: The priority of this QoS Profile<br>
                 <b>packetDelayBudget (optional)</b>: Maximum latency<br>
+                <b>Jitter (optional)</b>: Jitter refers to the variation in the time it takes for none queue building packets to travel across a network measured in milliseconds (ms). In terms of maximum deviation for round trip latency on a network, jitter can be defined as the difference between the highest and lowest latency values experienced by the 99th percentile of traffic.
+                To be more specific, if we consider the round trip latency values of the 99th percentile of traffic, jitter is the measure of how much these values deviate from the average round trip latency for this percentile. A low jitter value indicates that the latency values are relatively consistent, whereas a high jitter value implies that there is a significant variation in latency times, which can negatively impact the performance of real-time applications such as VoIP, video conferencing, and online gaming.
+                <br>
                 <b>packetErrorLossRate (optional)</b>: The magnitude of the error loss rate<br>
             </td>
         </tr>
