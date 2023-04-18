@@ -210,6 +210,78 @@ paths:
         - QoS Profiles
       summary: "Get All QoS Profiles"
       operationId: getQosProfiles
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+          required: false
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/QosProfileStatusEnum'
+          required: false
+        - name: targetMinimumUpstreamRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: maxUpstreamRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: maxUpstreamBurstRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: targetMinimumDownstreamRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: maxDownstreamRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: maxDownstreamBurstRate
+          in: query
+          schema:
+            $ref: '#/components/schemas/Rate'
+          required: false
+        - name: minDuration
+          in: query
+          schema:
+            $ref: '#/components/schemas/Duration'
+          required: false
+        - name: maxDuration
+          in: query
+          schema:
+            $ref: '#/components/schemas/Duration'
+          required: false
+        - name: priority
+          in: query
+          schema:
+            type: number
+            format: float
+          required: false
+        - name: packetDelayBudget
+          in: query
+          schema:
+            $ref: '#/components/schemas/Duration'
+          required: false
+        - name: jitter
+          in: query
+          schema:
+            $ref: '#/components/schemas/Duration'
+          required: false
+        - name: packetErrorLossRate
+          in: query
+          schema:
+            type: integer
+          required: false
       responses:
         "200":
           description: Contains information about QoS Profiles
