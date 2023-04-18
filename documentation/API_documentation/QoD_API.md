@@ -407,6 +407,81 @@ Following table defines API endpoints of exposed REST based for QoD management o
     </tbody>
 </table>
 
+#### QoD - Get QoS Profiles Resource by id
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=3><b>Get QoS Profile Resource by id</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>HTTP Request</b></td>
+            <td colspan=2>GET &lt;base-url&gt;/qod/v0/qosProfile</td>
+        </tr>
+        <tr>
+            <td><b>Query Parameters</b></td>
+            <td colspan=2> No Query Parameters</td>
+        </tr>
+        <tr>
+            <td><b>Path Parameters</b></td>
+            <td><b>profile-id</b></td>
+            <td>Extended QoS profile id</td>
+        </tr>
+        <tr>
+            <td><b>Request Body Parameters</b></td>
+            <td colspan=2><b>No Request Body Parameters defined</b></td>
+        </tr>
+        <tr>
+            <td rowspan=7><b>Response</b></td>
+            <td><b>201: QoS Profile created</b></td>
+            <td>
+                Response body:<br>
+                <b>id</b>: The identifier of the QoS Profile<br>
+                <b>name</b>: The name of the QoS Profile<br>
+                <b>status</b>: The status of the QoS Profile<br>
+                <b>targetMinimumUpstreamRate</b>: This is the targeted minimum upstream rate for this profile.<br>
+                <b>maxUpstreamRate</b>: This is the maximum sustained upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxUpstreamBurstRate</b>: This is the maximum burst upstream rate for this profile. If this is undefined, then the maxUpstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
+                <b>targetMinimumDownstreamRate</b>: This is the targeted minimum Downstream rate for this profile.<br>
+                <b>maxDownstreamRate</b>: This is the maximum sustained Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum sustained rate, then the current rate is used.<br>
+                <b>maxDownstreamBurstRate</b>: This is the maximum burst Downstream rate for this profile. If this is undefined, then the maxDownstream rate will not change.
+                If this rate is lower than the current provisioned maximum rate, then the current maximum burst rate is used.<br>
+                <b>minDuration (optional)</b>: Minimum duration for a session with this QoS Profile<br>
+                <b>maxDuration (optional)</b>: Maximum duration for a session with this QoS Profile<br>
+                <b>priority (optional)</b>: The priority of this QoS Profile<br>
+                <b>packetDelayBudget (optional)</b>: Maximum latency<br>
+                <b>Jitter (optional)</b>: Jitter refers to the variation in the time it takes for none queue building packets to travel across a network measured in milliseconds (ms). In terms of maximum deviation for round trip latency on a network, jitter can be defined as the difference between the highest and lowest latency values experienced by the 99th percentile of traffic.
+                To be more specific, if we consider the round trip latency values of the 99th percentile of traffic, jitter is the measure of how much these values deviate from the average round trip latency for this percentile. A low jitter value indicates that the latency values are relatively consistent, whereas a high jitter value implies that there is a significant variation in latency times, which can negatively impact the performance of real-time applications such as VoIP, video conferencing, and online gaming.
+                <br>
+                <b>packetErrorLossRate (optional)</b>: The magnitude of the error loss rate<br>
+            </td>
+        </tr>
+        <tr>
+            <td><b>400: Invalid input</b></td>
+        </tr>
+        <tr>
+            <td><b>401: Un-authorized</b></td>
+        </tr>
+        <tr>
+            <td><b>403: Forbidden</b></td>
+        </tr>
+        <tr>
+            <td><b>409: Conflict</b></td>
+        </tr>
+        <tr>
+            <td><b>500: Server Error</b></td>
+        </tr>
+        <tr>
+            <td><b>503: Service temporarily unavailable</b></td>
+        </tr>
+    </tbody>
+</table>
+
 ### 4.4 Errors
 
 Since CAMARA QoD API is based on REST design principles and blueprints, well defined HTTP status codes and families specified by community are followed [[4]](#4).
