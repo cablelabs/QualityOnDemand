@@ -313,6 +313,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
 
 #### QoD - Get QoS Profiles Resource Operations
 
+<img src="./resources/QoS_Profile_Design.svg" title="QoS Profile Design">
 <table>
     <thead>
         <tr>
