@@ -323,7 +323,7 @@ paths:
           schema:
             type: string
             example: foo-bar
-            description: Unique gererated ID for a QoS Profile
+            description: Unique generated ID for a QoS Profile
             minLength: 3
             maxLength: 128
             format: string
@@ -507,7 +507,7 @@ components:
         maxUpstreamRate:
           $ref: "#/components/schemas/Rate"
           description: |
-            The maximim best effort data
+            The maximum best effort data
             Equal to targetMinimumUpstreamRate when max is the as the target. 
         maxUpstreamBurstRate:
           $ref: "#/components/schemas/Rate"
@@ -519,19 +519,19 @@ components:
         maxDownstreamRate:
           $ref: "#/components/schemas/Rate"
           description: |
-            The maximim best effort rate
+            The maximum best effort rate
             Equal to targetMinimumUpstreamRate when max is the as the target. 
         maxDownstreamBurstRate:
           $ref: "#/components/schemas/Rate"
           description: |
-            The maximim best effort burst rate
+            The maximum best effort burst rate
             Equal to targetMinimumUpstreamRate when max is the as the target. 
         minDuration:
           $ref: "#/components/schemas/Duration"
           description: The shortest time period that is supported this profile can be deployed.
         maxDuration:
           $ref: "#/components/schemas/Duration"
-          description: The maximum lenght of time that this profile can be deployed.
+          description: The maximum length of time that this profile can be deployed.
         priority:
           type: number
           example: 5.0
@@ -543,7 +543,7 @@ components:
           default: 5
         packetDelayBudget:
           $ref: "#/components/schemas/Duration"
-          description: The maxium latency for a packet.
+          description: The maximum latency for a packet.
         jitter:
           $ref: "#/components/schemas/Duration"
           description: |
@@ -584,7 +584,7 @@ components:
           $ref: "#/components/schemas/RateUnitEnum"
     Duration:
       type: object
-      description: Legth and time
+      description: Value and unit of time
       properties:
         value:
           type: integer
@@ -609,7 +609,7 @@ components:
         - Hours
         - Minutes
         - Seconds
-        - Miliseconds
+        - Milliseconds
         - Microseconds
         - Nanoseconds
     QosProfileStatusEnum:
@@ -630,7 +630,7 @@ components:
         Kbps - Kilobits per second
         Mbps - Megabits per second
         Gbps - Gigabits per second
-        Tbps - Terrabits per second
+        Tbps - Terabits per second
       type: string
       enum:
         - Kbps
