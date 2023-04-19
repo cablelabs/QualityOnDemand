@@ -501,7 +501,7 @@ components:
         status:
           $ref: "#/components/schemas/QosProfileStatusEnum"
           description: The status of the profile.  See QosProfileStatusEnum for description.
-        targetMinimumUpstreamRate:
+        targetMinUpstreamRate:
           $ref: "#/components/schemas/Rate"
           description: The target minimum data rate.  Set to zero when no target minimum is defined in this profile.
         maxUpstreamRate:
@@ -513,7 +513,7 @@ components:
           $ref: "#/components/schemas/Rate"
           description: |
             The burst rate for best effort data
-        targetMinimumDownstreamRate:
+        targetMinDownstreamRate:
           $ref: "#/components/schemas/Rate"
           description: The target minimum data rate.  Set to zero when no target minimum is defined in this profile.
         maxDownstreamRate:
@@ -560,7 +560,6 @@ components:
             jitter value implies that there is a significant variation in latency times,
             which can negatively impact the performance of real-time applications such as
             VoIP, video conferencing, and online gaming.
-
         packetErrorLossRate:
           type: integer
           description: |
