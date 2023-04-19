@@ -109,7 +109,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
             <td colspan=2>No path parameters are defined</td>
         </tr>
         <tr>
-            <td rowspan=9><b>Request Body Parameters</b></td>
+            <td rowspan=8∏><b>Request Body Parameters</b></td>
             <td><b>duration (optional)</b></td>
             <td>Session duration in seconds. Maximal value of 24 hours is used if not set. e.g. 86400</td>
         </tr>
@@ -146,11 +146,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
         </tr>
         <tr>
             <td><b>qosProfile</b></td>
-            <td>Qualifier for the requested latency/throughput profile, e.g. QOS_E.  Either qosProfileId or qosProfile will be included, but not both.</td>
-        </tr>
-        <tr>
-            <td><b>qosProfileId</b></td>
-            <td>The ID string for the EnhancedQoS profile.  Either qosProfileId or qosProfile will be included, but not both.</td>
+            <td>Qualifier for the requested latency/throughput profile.  This can either be a predefined QosProfile or the ID of a provider defined QoS Profile.</td>
         </tr>
         <tr>
             <td><b>notificationUrl (optional)</b></td>
@@ -167,7 +163,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
                 Response body:<br>
                 <b>duration</b>: Session duration in seconds<br>
                 <b>device:</b> The identifier of the device<br>
-                <b>applicationServer:</b> The identifer of the application server<br>
+                <b>applicationServer:</b> The identifier of the application server<br>
                 <b>devicePorts (optional):</b> The requested port(s) on the device<br>
                 <b>applicationServerPorts (optional):</b> The requested port(s) on the application server<br>
                 <b>qosProfile:</b> Qualifier of the requested throughput profile<br>
@@ -207,7 +203,7 @@ Following table defines API endpoints of exposed REST based for QoD management o
 <table>
     <thead>
         <tr>
-            <th colspan=3><b>Quering QoS Session Resource information</b></th>
+            <th colspan=3><b>Querying QoS Session Resource information</b></th>
         </tr>
     </thead>
     <tbody>
