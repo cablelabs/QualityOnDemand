@@ -24,4 +24,5 @@ jobs:
       - name: Lint OpenAPI definition
         uses: nwestfall/openapi-action@v1.0.1
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           file: code/API_definitions/qod-api.yaml
