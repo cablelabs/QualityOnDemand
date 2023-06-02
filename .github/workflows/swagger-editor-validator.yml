@@ -14,15 +14,3 @@ jobs:
         uses: char0n/swagger-editor-validate@v1.3.2
         with:
           definition-file: code/API_definitions/qod-api.yaml
-
-  redocly_openapi_lint:
-    runs-on: ubuntu-latest
-    name: Redocly OpenAPI Lint
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Lint OpenAPI definition
-        uses: nwestfall/openapi-action@v1.0.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          file: code/API_definitions/qod-api.yaml
