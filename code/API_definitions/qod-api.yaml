@@ -554,7 +554,7 @@ components:
             code: INVALID_ARGUMENT
             message: "Schema validation failed at  ..."
     Generic401:
-      description: Unauthorized
+      descriptions: Unauthorized
       content:
         application/json:
           schema:
@@ -564,13 +564,13 @@ components:
             code: UNAUTHENTICATED
             message: "Authorization failed: ..."
     Generic403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorInfo"
-          example:
-            status: 403
+    description: Forbidden
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorInfo"
+        example:
+          status: 403
             code: PERMISSION_DENIED
             message: "Operation not allowed: ..."
     SessionNotFound404:
