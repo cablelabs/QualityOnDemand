@@ -885,7 +885,7 @@ components:
       example:
             {
               "publicAddress": "84.125.93.10",
-              "publicPort" : 59765
+              "publicPort": 59765
             }
 
     SingleIpv4Addr:
@@ -1003,8 +1003,8 @@ components:
           $ref: "#/components/schemas/ErrorInfo"
         example:
           status: 403
-            code: PERMISSION_DENIED
-            message: "Operation not allowed: ..."
+          code: PERMISSION_DENIED
+          message: "Operation not allowed: ..."
 
     SessionNotFound404:
       description: Session not found
