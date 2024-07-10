@@ -745,6 +745,7 @@ components:
         ipv6Address:
           $ref: "#/components/schemas/DeviceIpv6Address"
       minProperties: 1
+      maxProperties: 4
 
     ApplicationServer:
       description: |
