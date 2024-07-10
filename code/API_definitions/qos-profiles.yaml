@@ -45,7 +45,8 @@ paths:
       summary: "Get All QoS Profiles"
       description: |
         Returns all QoS Profiles that match the given criteria.
-        If no criteria is given, all QoS Profiles are returned.
+        If the client credentials specify a device, the QoS Profiles returned are those that are applicable to the device.
+        If no criteria is given and the credentials don't specify a device, all QoS Profiles are returned.
       operationId: getQosProfiles
       parameters:
         - name: name
